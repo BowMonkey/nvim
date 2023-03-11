@@ -135,7 +135,7 @@ map("t" , "<M-q>" , "<C-\\><C-n>"      , opt)
 -- vertical
 map("n", "<M-V>", ":vsp<CR>", opt)
 -- horizon FIXME find a better shotcut
---map("n", "<M-H>", ":sp<CR>", opt)
+map("n", "<M-S>", ":sp<CR>", opt)
 
 -- 关闭当前window
 map("n", "<M-C>", "<C-w>c", opt)
@@ -209,6 +209,8 @@ pluginKeys.nvimTreeList = {
         {key = "]", action = "cd"},
         -- jump out
         {key = "[", action = "dir_up"},
+        -- close
+        {key = "q", action = "close"},
 }
 return pluginKeys
 

@@ -36,6 +36,15 @@ vim.wo.colorcolumn = "80"
 -- 空格替代tab
 vim.o.expandtab = true
 vim.bo.expandtab = true
+-- 设置缩进宽度
+vim.o.sw=4
+vim.bo.sw=4
+-- 设置 TAB 宽度
+vim.o.ts=4
+vim.bo.ts=4
+--" 如果后面设置了 expandtab 那么展开 tab 为多少字符
+vim.o.softtabstop=4
+vim.bo.softtabstop=4
 
 -- 搜索大小写不敏感，除非包含大写
 vim.o.ignorecase = true

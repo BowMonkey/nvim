@@ -182,6 +182,68 @@ pluginKeys.telescopeList = {
   },
 }
 
+-- Lsp ---------------------------------------------------------
+pluginKeys.mapLSP = function(mapbuf)
+  -- rename
+  mapbuf("n", "<leader>rn", "<cmd>lua vim.lsp.buf.rename()<CR>", opt)
+  -- code action
+  mapbuf("n", "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>", opt)
+  -- go xx
+  mapbuf("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opt)
+  mapbuf("n", "gh", "<cmd>lua vim.lsp.buf.hover()<CR>", opt)
+  mapbuf("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opt)
+  mapbuf("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", opt)
+  mapbuf("n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", opt)
+  -- diagnostic
+  mapbuf("n", "gp", "<cmd>lua vim.diagnostic.open_float()<CR>", opt)
+  mapbuf("n", "gk", "<cmd>lua vim.diagnostic.goto_prev()<CR>", opt)
+  mapbuf("n", "gj", "<cmd>lua vim.diagnostic.goto_next()<CR>", opt)
+  mapbuf("n", "<leader>f", "<cmd>lua vim.lsp.buf.format{async=true}<CR>", opt)
+  -- 没用到
+  -- mapbuf('n', '<leader>q', '<cmd>lua vim.diagnostic.setloclist()<CR>', opt)
+  -- mapbuf("n", "<C-k>", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opt)
+  -- mapbuf('n', '<space>wa', '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>', opt)
+  -- mapbuf('n', '<space>wr', '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>', opt)
+  -- mapbuf('n', '<space>wl', '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', opt)
+  -- mapbuf('n', '<space>D', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opt)
+end
+
+
+-- buffer-line-----------------------------------------------------------
+-- change between left-right tab
+map("n" , "<leader>h", ":BufferLineCyclePrev<CR>"   , opt)
+map("n" , "<leader>l", ":BufferLineCycleNext<CR>"   , opt)
+
+-- close
+-- "moll/vim-bbye"
+map("n", "<C-w>", ":Bdelete!<CR>", opt)
+-- pick close
+map("n" , "<leader>bd", ":BufferLinePickClose<CR>"   , opt)
+-- pick close right
+map("n" , "<leader>bL", ":BufferLineCloseRight<CR>"   , opt)
+-- pick close left
+map("n" , "<leader>bH", ":BufferLineCloseLeft<CR>"   , opt)
+
+-- pick
+map("n" , "<leader>bg", ":BufferLinePick<CR>"   , opt)
+
+
+-- toggleterm -----------------------------------------------------------
+-- custom three different cmd window
+-- <leader>ta float
+-- <leader>tb right
+-- <leader>tc under
+-- lazygit window
+-- <leader>tg lazygit
+pluginKeys.mapToggleTerm = function(toggleterm)
+        vim.keymap.set({"n","t"}, "<leader>ta", toggleterm.toggleA)
+        vim.keymap.set({"n","t"}, "<leader>tb", toggleterm.toggleB)
+        vim.keymap.set({"n","t"}, "<leader>tc", toggleterm.toggleC)
+        vim.keymap.set({"n","t"}, "<leader>tg", toggleterm.toggleG)
+end
+
+
+
 -- nvim-tree -----------------------------------------------------------
 
 -- <leader> + t Toggle vim-tree
